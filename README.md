@@ -52,6 +52,8 @@ subscribers
 books
 subscribers
 >
+> db.getCollectionNames()
+[ "book", "books", "sampleCollection", "subscribers", "window" ]
 ```
 ## Insert Data
 ```
@@ -299,3 +301,7 @@ WriteResult({ "nRemoved" : 5 })
 ]
 >
 ```
+## Adanced query
+
+ - [Aggregation](/Aggregate.md)
+ 
