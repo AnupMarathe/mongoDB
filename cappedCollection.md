@@ -1,5 +1,6 @@
 # Cappend Collection
 
+## Creating Capped Collection
 Capped collection allows to limit data and records in collection. This collection can help if there is requirement to keep latest n number of records. 
 When n+1 record is added to collection, then record at 1st position is removed.
 ```
@@ -46,6 +47,10 @@ When n+1 record is added to collection, then record at 1st position is removed.
 { "_id" : ObjectId("62b596120640b376f0017125"), "record" : 8, "message" : "Hello World" }
 { "_id" : ObjectId("62b596120640b376f0017126"), "record" : 9, "message" : "Hello World" }
 { "_id" : ObjectId("62b596120640b376f0017127"), "record" : 10, "message" : "Hello World" }
+```
+## Adding document above max capacity
+In a capped collection - window, we ahve added 10 documents. The collection is capped at amx 10 documents. By adding a new document, first document is purged.
+```
 > db.window.insertOne({"record" : 11, "message" : "Hello World 11"})
 {
         "acknowledged" : true,
@@ -81,10 +86,9 @@ When n+1 record is added to collection, then record at 1st position is removed.
 { "_id" : ObjectId("62b596120640b376f0017127"), "record" : 10, "message" : "Hello World" }
 { "_id" : ObjectId("62b5963c0640b376f0017128"), "record" : 11, "message" : "Hello World 11" }
 { "_id" : ObjectId("62b5966b0640b376f0017129"), "record" : 12, "message" : "Hello World 12" }
-
-> db.window.re
-db.window.reIndex(           db.window.remove(            db.window.renameCollection(  db.window.replaceOne(
-
+```
+Oldest document is purged when new document is added. By removing latest document, we don't get document which was removed due to max document setting. So this is not a sliding window.
+```
 > db.window.remove({ "_id" : ObjectId("62b5966b0640b376f0017129")})
 WriteResult({ "nRemoved" : 1 })
 > db.window.find()
