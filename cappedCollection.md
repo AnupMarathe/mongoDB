@@ -1,3 +1,5 @@
+# Cappend Collection
+
 Capped collection allows to limit data and records in collection. This collection can help if there is requirement to keep latest n number of records. 
 When n+1 record is added to collection, then record at 1st position is removed.
 ```
