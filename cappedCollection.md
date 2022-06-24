@@ -1,4 +1,4 @@
-# Cappend Collection
+# Capped Collection
 
 ## Creating Capped Collection
 Capped collection allows to limit data and records in collection. This collection can help if there is requirement to keep latest n number of records. 
