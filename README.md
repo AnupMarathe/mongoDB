@@ -301,7 +301,9 @@ WriteResult({ "nRemoved" : 5 })
 ]
 >
 ```
-## Adanced query
+## Other Topics
 
  - [Aggregation](/Aggregate.md)
+ - [Relationship](/Relationship.md)
+ - [Capped Collection](/cappedCollection.md)
  
